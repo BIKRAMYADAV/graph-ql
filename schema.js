@@ -9,6 +9,8 @@ type Review {
     id: ID! 
     rating: Int! 
     content: String! 
+    game: Game!
+    author: Author
 }
 type Author {
     id: ID! 
@@ -37,4 +39,32 @@ query ReviewQuery($id: ID!) {
     content
   }
 }
+*/ 
+
+/*
+nested query:
+    query GameQuery($id: ID!) {
+  game(id:$id){
+    title,
+    reviews {
+      rating,
+      content
+    }
+  }
+}
+
+nested chain of reviews:-
+query GameQuery($id: ID!) {
+  review(id:$id){
+    rating,
+    game{
+      title,
+      platform,
+      reviews {
+        rating
+      }
+    }
+  }
+}
+
 */ 
