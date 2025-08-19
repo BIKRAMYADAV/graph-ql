@@ -16,6 +16,7 @@ type Author {
 }
 type Query {
     reviews : [Review]
+    review(id:ID!): Review
     games : [Game]
     authors : [Author]
 }
@@ -23,3 +24,13 @@ type Query {
 //type query shows the entry point
 
 //int, float, string, boolean, ID
+
+/*
+how to query :- 
+query ReviewQuery($id: ID!) {
+  review(id: $id) {
+    rating,
+    content
+  }
+}
+*/ 
